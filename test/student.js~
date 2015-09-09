@@ -10,7 +10,7 @@ describe('student', function(){
 	//nested na describe
 	describe ("find()", function(){
 	
-		it('should retrive all student record', function(done){
+		it('should retrive all student record', function(done){ //a test for "find" unit
 			request(url)
 			.get('/students')
 			.end(function(err,res){
@@ -49,6 +49,8 @@ describe('student', function(){
 			.end(function(err,res){
 				if(err) throw err; //for error handling
 				res.should.have.status(200);
+				res.body.should.be.an.instanceOf(Object);
+				res.body.should.have.property('id', 2);
 				done();
 		
 		});
