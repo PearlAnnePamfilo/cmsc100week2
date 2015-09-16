@@ -17,6 +17,10 @@ app.use(require('method-override')());
 app.use(require(__dirname+'/config/router')(express.Router())); //to separate route handlers
 
 
+//connecting the html5 to the web app
+
+app.use(express.static(__dirname+'/public'));
+
 var server = app.listen(5000, function(){
       var host = server.address().address;
       var port = server.address().port;
